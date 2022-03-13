@@ -1,0 +1,28 @@
+{
+  "contracts": {
+    "MacToken": "ea4e9b2daa511f2d7c42f33328715f9932e7af3a",
+    "MockDAI": "ab1a66bc3a36fcf1351179f7adbca527a0f6c911",
+    "MockERC20": "a76a17e80ec61ec18ed8fd4f87a9ed109849a985",
+    "MockV3Aggregator": "9e734e161b5cafcca52a917f10266f5a8bc05b28",
+    "MockWETH": "21c4935a4e5b858efd5c83f628f8bb78bafdabce",
+    "OpenZeppelin/openzeppelin-contracts@4.2.0/ERC20": "5c27d7156fdbfe889902cc167df697405a50ad20",
+    "TokenFarm": "0e27e3e1fc56ba783d26d029e513c2b90aa1c709"
+  },
+  "tests": {
+    "tests/integration/test_token_farm_integration.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "F",
+      "sha1": "04babe817a4669e8da102bc72a309fe9aec3bf31",
+      "txhash": []
+    },
+    "tests/unit/test_token_farm.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "sssssss",
+      "sha1": "da4b235a584e768cf4b131f58518899df1cb6142",
+      "txhash": []
+    }
+  },
+  "tx": {}
+}
