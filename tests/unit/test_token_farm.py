@@ -111,10 +111,22 @@ def test_unstake_tokens(amount_staked):
     account = get_account()
     token_farm, mac_token = test_stake_tokens(amount_staked)
     # Act
-    token_farm.unstakeTokens(amount_staked, mac_token.address, {"from": account})
-    assert mac_token.balanceOf(account.address) == KEPT_BALANCE
-    assert token_farm.stakingBalance(mac_token.address, account.address) == 0
-    assert token_farm.uniqueTokensStaked(account.address) == 0
+    print("total supply: ", mac_token.totalSupply())
+    print("balance", mac_token.balanceOf(account.address))
+    print(
+        "amount staked", token_farm.stakingBalance(mac_token.address, account.address)
+    )
+    token_farm.unstakeTokens(amount_staked / 2, mac_token.address, {"from": account})
+    print("balance", mac_token.balanceOf(account.address))
+    print(
+        "amount staked", token_farm.stakingBalance(mac_token.address, account.address)
+    )
+    assert mac_token.balanceOf(account.address) == KEPT_BALANCE - amount_staked / 2
+    assert (
+        token_farm.stakingBalance(mac_token.address, account.address)
+        == amount_staked - amount_staked / 2
+    )
+    # assert token_farm.uniqueTokensStaked(account.address) == 0
 
 
 def test_add_allowed_tokens():
