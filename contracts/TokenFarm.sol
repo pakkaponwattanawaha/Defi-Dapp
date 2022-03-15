@@ -72,7 +72,7 @@ contract TokenFarm is Ownable {
             stakingBalance[_token][msg.sender] -
             _amount;
         IERC20(_token).transfer(msg.sender, _amount);
-        uniqueTokensStaked[msg.sender] = uniqueTokensStaked[msg.sender] - 1;
+
         for (uint256 idx = 0; idx < stakers.length; idx++) {
             if (stakers[idx] == msg.sender) {
                 stakers[idx] = stakers[stakers.length - 1];
