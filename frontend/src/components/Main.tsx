@@ -46,7 +46,7 @@ export const Main = () => {
     },
     {
       image: DAITokenPng,
-      address: MacTokenAddress,
+      address: fauTokenAddress,
       name: "DAI",
     },
   ];
