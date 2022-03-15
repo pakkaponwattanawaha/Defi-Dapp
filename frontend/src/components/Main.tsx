@@ -8,7 +8,7 @@ import MacTokenPng from "../resources/MacToken.png";
 import DAITokenPng from "../resources/dai.png";
 import ETHTokenPng from "../resources/eth.png";
 import { Wallet } from "./Wallet/Wallet";
-
+import { TokenFarmContract } from "./TokenFarmContract";
 export type Token = {
   image: string;
   address: string;
@@ -52,5 +52,13 @@ export const Main = () => {
   ];
 
   console.log(networkName, MacTokenAddress, wethTokenAddress, fauTokenAddress);
-  return <Wallet supportedTokens={supportedTokens}></Wallet>;
+  return (
+    <div>
+      <div>Stake</div>
+      <div style={{ border: "solid blue" }}>
+        <Wallet supportedTokens={supportedTokens}></Wallet>
+        <TokenFarmContract supportedTokens={supportedTokens} />
+      </div>
+    </div>
+  );
 };

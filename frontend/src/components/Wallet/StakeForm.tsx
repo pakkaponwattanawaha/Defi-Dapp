@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Token } from "../Main";
 import { useEthers, useTokenBalance, useNotifications } from "@usedapp/core";
 import { formatUnits } from "@ethersproject/units";
-import { Button, Input, CircularProgress, Snackbar } from "@material-ui/core";
+import {
+  Button,
+  TextField,
+  CircularProgress,
+  Snackbar,
+  makeStyles,
+} from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { useStakeTokens } from "../../hooks";
 import { utils } from "ethers";
@@ -11,6 +17,15 @@ export interface StakeFormProps {
   token: Token;
 }
 
+const useStyles = makeStyles((theme) => ({
+  contentContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    gap: theme.spacing(2),
+  },
+}));
 export const StakeForm = ({ token }: StakeFormProps) => {
   const { address: tokenAddress, name } = token;
   const { account } = useEthers();
@@ -72,17 +87,28 @@ export const StakeForm = ({ token }: StakeFormProps) => {
     //looking for success status and state update
   }, [notifications, showErc20ApprovalSuccess, showStakeTokenSuccess]);
 
+  const classes = useStyles();
+
   return (
     <>
-      <div>
-        <Input onChange={handleInputChange} />
+      <div className={classes.contentContainer}>
+        <TextField
+          label="Stake Amount"
+          type="number"
+          variant="outlined"
+          onChange={handleInputChange}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
         <Button
           onClick={handleStakeSubmit}
           color="primary"
+          variant="contained"
           size="large"
           disabled={isMining}
         >
-          {isMining ? <CircularProgress size={26} /> : "Stake!!!"}
+          {isMining ? <CircularProgress size={26} /> : "STAKE"}
         </Button>
       </div>
       <Snackbar

@@ -17,9 +17,8 @@ export const Header = () => {
 
   return (
     <div className={classes.container}>
-      <>HEADER</>
       {isConnected ? (
-        <Button variant="contained" onClick={deactivate}>
+        <Button color="secondary" variant="contained" onClick={deactivate}>
           Disconnect
         </Button>
       ) : (
