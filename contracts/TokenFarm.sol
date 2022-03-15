@@ -2,7 +2,7 @@
 //unStakeToken
 //issue Tokens
 //  rewarding staked token with mactoken => 1:1 => 1DAI = 1MAC
-//  what if they stake 50ETH : 50DAI => convert ETH to DAI then give 1MAC per 1DAI -> price feed!!!!
+//  what if they stake 50ETH : 50DAI => convert ETH to DAI then give 1MAC per 1DAI -> use price feed!!!!
 
 // addAllowedTokens
 //getEthValue
@@ -64,7 +64,7 @@ contract TokenFarm is Ownable {
         require(tokenIsAllowed(_token), "Token is not allowed to stake");
 
         // how much can they unstake?
-        require(balance <= _amount, "Insufficient balance to unstake ");
+        require(balance - _amount >= 0, "Insufficient balance to unstake ");
 
         // how much can we unstake
         require(balance > 0, "Amount must be more than 0");
@@ -72,11 +72,12 @@ contract TokenFarm is Ownable {
             stakingBalance[_token][msg.sender] -
             _amount;
         IERC20(_token).transfer(msg.sender, _amount);
-
-        for (uint256 idx = 0; idx < stakers.length; idx++) {
-            if (stakers[idx] == msg.sender) {
-                stakers[idx] = stakers[stakers.length - 1];
-                stakers.pop();
+        if (balance == 0) {
+            for (uint256 idx = 0; idx < stakers.length; idx++) {
+                if (stakers[idx] == msg.sender) {
+                    stakers[idx] = stakers[stakers.length - 1];
+                    stakers.pop();
+                }
             }
         }
     }
@@ -120,9 +121,9 @@ contract TokenFarm is Ownable {
         } else {
             //get price * stakingBalance[_token][_user]
             (uint256 price, uint256 decimals) = getTokenValue(_token);
-            // 10 ETH -> ETH/USD ==2,000
-            // 10*2000 = 20,000
-            // but our stakingBalance will be concat by 18 10s => divide by 10** decimals
+            // 10 ETH -> ETH/USD ==3,000
+            // 10*3000 = 30,000
+            // but our stakingBalance will be concat by 18 0s => divide by 10** decimals
 
             return ((stakingBalance[_token][_user] * price) / (10**decimals));
         }

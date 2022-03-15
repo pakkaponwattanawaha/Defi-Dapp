@@ -4,6 +4,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract MacToken is ERC20 {
     constructor() public ERC20("Mac Token", "MAC") {
-        _mint(msg.sender, 1_000_000_000_000_000_000_000_000);
+        _mint(msg.sender, 1_000_000_000_000_000_000_000_000); //Mint 1Million of Mac -> 10 * 10*18 MacWei
     }
 }
