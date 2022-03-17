@@ -127,6 +127,28 @@ def test_unstake_tokens(amount_staked):
         == amount_staked - amount_staked / 2
     )
     # assert token_farm.uniqueTokensStaked(account.address) == 0
+    # print("balance", mac_token.balanceOf(account.address))
+    # transfer_tx = mac_token.transfer(token_farm.address, amount_staked / 2)
+    # transfer_tx.wait(1)
+    # print("balance", mac_token.balanceOf(token_farm.address))
+    # print(
+    #     "tokenFarm staked:",
+    #     token_farm.stakingBalance(mac_token.address, account.address),
+    # )
+    # assert mac_token.balanceOf(account.address) == 0
+
+
+def test_transfer_tokens(amount_staked):
+    # Arrange
+    if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
+        pytest.skip("Only for local testing!")
+    account = get_account()
+    token_farm, mac_token = test_stake_tokens(amount_staked)
+    starting_balance = mac_token.balanceOf(account.address)
+    # Act
+    token_farm.transferToken(KEPT_BALANCE, account.address, {"from": account})
+    # Arrange
+    assert mac_token.balanceOf(account.address) == starting_balance + KEPT_BALANCE
 
 
 def test_add_allowed_tokens():

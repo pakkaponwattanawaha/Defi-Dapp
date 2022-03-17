@@ -13,14 +13,21 @@ const useStyles = makeStyles((theme) => ({
 export const Header = () => {
   const classes = useStyles();
   const { account, activateBrowserWallet, deactivate } = useEthers();
-  const isConnected = account !== undefined;
-
+  // const isConnected = account !== undefined;
+  const shortenAccountAddress = account
+    ? account.substring(0, 5) +
+      "..." +
+      account.substring(account.length - 4, account.length)
+    : "";
   return (
     <div className={classes.container}>
-      {isConnected ? (
-        <Button color="secondary" variant="contained" onClick={deactivate}>
-          Disconnect
-        </Button>
+      {account ? (
+        <div>
+          <Button color="secondary" variant="contained" onClick={deactivate}>
+            Disconnect
+          </Button>
+          <span>{shortenAccountAddress}</span>
+        </div>
       ) : (
         <Button
           color="primary"

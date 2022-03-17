@@ -4,7 +4,6 @@ import { Box, Tab, makeStyles } from "@material-ui/core";
 import { TabContext, TabList, TabPanel } from "@material-ui/lab";
 import { StakeForm } from "./StakeForm";
 import { WalletBalance } from "./WalletBalance";
-import { stringify } from "querystring";
 interface WalletProps {
   supportedTokens: Array<Token>;
 }

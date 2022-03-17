@@ -11,15 +11,17 @@ KEPT_BALANCE = Web3.toWei(100, "ether")
 
 def deploy_token_farm_and_mac_token(do_update_front_end=False):
     account = get_account()
-    mac_token = MacToken.deploy({"from": account})
+    mac_token = MacToken.deploy(
+        {"from": account}
+    )  # create and owned by deployer => transfer most of it to farm
     token_farm = TokenFarm.deploy(
-        mac_token.address,
+        mac_token.address,  # -> initiate interface
         {"from": account},
         publish_source=config["networks"][network.show_active()].get("verify", False),
     )
     tx = mac_token.transfer(
         token_farm.address, mac_token.totalSupply() - KEPT_BALANCE, {"from": account}
-    )
+    )  # keep 100 in our wallet??? and transfer all to token_farm!!!!
     tx.wait(1)
     # mac_token, weth_token, fau_token
     weth_token = get_contract(

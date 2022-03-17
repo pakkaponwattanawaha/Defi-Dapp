@@ -6,7 +6,7 @@
     "MockV3Aggregator": "9e734e161b5cafcca52a917f10266f5a8bc05b28",
     "MockWETH": "21c4935a4e5b858efd5c83f628f8bb78bafdabce",
     "OpenZeppelin/openzeppelin-contracts@4.2.0/ERC20": "5c27d7156fdbfe889902cc167df697405a50ad20",
-    "TokenFarm": "c47223dd1c23f920aa3fbccb2348b177b496fe4e"
+    "TokenFarm": "31200c6ba186adc68284be0c4df6c35dacb563db"
   },
   "tests": {
     "tests/integration/test_token_farm_integration.py": {
@@ -19,35 +19,16 @@
     "tests/unit/test_token_farm.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".......",
-      "sha1": "0fa5c32c11c4ccd7b0e03a9d0d09ade041244cf7",
+      "results": "........",
+      "sha1": "78da5e5d99c950d55ef33ee50ebba6a7e24e21d7",
       "txhash": [
-        "8d27e5c06428dfa1882aecc6574457288868d915",
-        "bef70040e21d93fd613fc8fdd2011ade3f516f38"
+        "4d65af48a6b7438bbe0bb366ec1215e034a28962",
+        "8d27e5c06428dfa1882aecc6574457288868d915"
       ]
     }
   },
   "tx": {
-    "8d27e5c06428dfa1882aecc6574457288868d915": {
-      "TokenFarm": {
-        "0": [
-          [],
-          [],
-          []
-        ],
-        "2": [
-          [],
-          [],
-          []
-        ],
-        "4": [
-          [],
-          [],
-          []
-        ]
-      }
-    },
-    "bef70040e21d93fd613fc8fdd2011ade3f516f38": {
+    "4d65af48a6b7438bbe0bb366ec1215e034a28962": {
       "TokenFarm": {
         "0": [
           [],
@@ -58,6 +39,25 @@
           [
             7
           ],
+          [],
+          []
+        ],
+        "4": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "8d27e5c06428dfa1882aecc6574457288868d915": {
+      "TokenFarm": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "2": [
+          [],
           [],
           []
         ],
