@@ -3,6 +3,7 @@ import { DAppProvider, ChainId } from "@usedapp/core";
 import { Header } from "./components/Header";
 import { Container } from "@material-ui/core";
 import { Main } from "./components/Main";
+import { Faucets } from "./components/Faucets";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       }}
     >
       <Header />
+      <Faucets></Faucets>
       <Container maxWidth="md">
         <Main></Main>
       </Container>

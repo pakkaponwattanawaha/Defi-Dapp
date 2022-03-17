@@ -94,7 +94,16 @@ contract TokenFarm is Ownable {
         }
     }
 
-    // Utility functions
+    function transferToken(uint256 amount, address recipient) public {
+        require(
+            macToken.balanceOf(address(this)) >= amount,
+            "Insufficient Mac Token"
+        );
+
+        macToken.transfer(recipient, amount);
+    }
+
+    /////// Utility functions
 
     function getUserTotalValue(address _user) public view returns (uint256) {
         uint256 totalValue = 0;
