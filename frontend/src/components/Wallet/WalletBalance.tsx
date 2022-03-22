@@ -1,4 +1,4 @@
-import { Token } from "../Main";
+import { Token } from "../../pages/Main";
 import { useEthers, useTokenBalance } from "@usedapp/core";
 import { formatUnits } from "@ethersproject/units";
 import { BalanceMsg } from "./BalanceMsg";

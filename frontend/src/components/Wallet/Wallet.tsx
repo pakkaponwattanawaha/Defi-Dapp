@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Token } from "../Main";
+import { Token } from "../../pages/Main";
 import { Box, Tab, makeStyles } from "@material-ui/core";
 import { TabContext, TabList, TabPanel } from "@material-ui/lab";
 import { StakeForm } from "./StakeForm";
@@ -16,10 +16,12 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     backgroundColor: "white",
-    borderRadius: "25px",
+    borderRadius: theme.spacing(1.5),
+    border: "1px solid #9aa2e7",
+    boxShadow: "rgb(12 22 44 / 32%) 0px 8px 24px -16px",
   },
   header: {
-    color: "white",
+    color: "blue",
   },
 }));
 
@@ -34,7 +36,11 @@ export const Wallet = ({ supportedTokens }: WalletProps) => {
       <h1 className={classes.header}> Your Wallet! </h1>
       <Box className={classes.box}>
         <TabContext value={selectedTokenIndex.toString()}>
-          <TabList onChange={handleTabChange} aria-label="stake from tabs">
+          <TabList
+            onChange={handleTabChange}
+            aria-label="stake from tabs"
+            indicatorColor="secondary"
+          >
             {supportedTokens.map((token, index) => {
               return (
                 <Tab

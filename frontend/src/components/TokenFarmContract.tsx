@@ -3,7 +3,7 @@ import { useEthers } from "@usedapp/core";
 import { TabContext, TabList, TabPanel } from "@material-ui/lab";
 // import { ConnectionRequiredMsg } from "../../components";
 import { Tab, Box, makeStyles } from "@material-ui/core";
-import { Token } from "./Main";
+import { Token } from "../pages/Main";
 import { UnstakeForm } from "./Wallet/UnstakeForm";
 
 interface TokenFarmContractProps {
@@ -19,12 +19,16 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     backgroundColor: "white",
-    borderRadius: "25px",
-    margin: `${theme.spacing(4)}px 0`,
-    padding: theme.spacing(2),
+    borderRadius: theme.spacing(1.5),
+    border: "1px solid #9aa2e7",
+    boxShadow: "rgb(12 22 44 / 32%) 0px 8px 24px -16px",
   },
   header: {
-    color: "white",
+    color: "blue",
+    fontFamily: "Roboto",
+  },
+  blurred: {
+    backdropFilter: "blur(10px)",
   },
 }));
 

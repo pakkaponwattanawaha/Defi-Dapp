@@ -7,7 +7,7 @@ import {
   TextField,
 } from "@material-ui/core";
 
-import { Token } from "../Main";
+import { Token } from "../../pages/Main";
 import { useUnstakeTokens } from "../../hooks";
 import { useStakingBalance } from "../../hooks";
 import Alert from "@material-ui/lab/Alert";

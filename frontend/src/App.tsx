@@ -2,7 +2,7 @@ import React from "react";
 import { DAppProvider, ChainId } from "@usedapp/core";
 import { Header } from "./components/Header";
 import { Container } from "@material-ui/core";
-import { Main } from "./components/Main";
+import { Main } from "./pages/Main";
 import { Faucets } from "./components/Faucets";
 
 function App() {
