@@ -4,7 +4,7 @@ import { utils, BigNumber, constants } from "ethers";
 import networkMapping from "../chain-info/deployments/map.json";
 import { Contract } from "@usedapp/core/node_modules/@ethersproject/contracts";
 // Act as a faucet to get free MAC token
-// for now 1MAC is = 1 DAI
+// for now 1MAC is peg to 1 DAI
 export const useTransferMacToken = () => {
   const { chainId } = useEthers();
 
