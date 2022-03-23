@@ -3,7 +3,7 @@ import TokenFarm from "../chain-info/contracts/TokenFarm.json";
 import { utils, BigNumber, constants } from "ethers";
 import networkMapping from "../chain-info/deployments/map.json";
 import { Contract } from "@usedapp/core/node_modules/@ethersproject/contracts";
-// Act as a faucet to get free MAC token
+// Issue reward MAC token for the amount each account stake!
 export const useIssueReward = () => {
   const { chainId } = useEthers();
 

@@ -10,6 +10,7 @@ import ETHTokenPng from "../resources/eth.png";
 import { Wallet } from "../components/Wallet/Wallet";
 import { TokenFarmContract } from "../components/TokenFarmContract";
 import { makeStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
 export type Token = {
   image: string;
   address: string;
