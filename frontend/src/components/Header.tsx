@@ -5,24 +5,25 @@ import MacTokenPng from "../resources/MacToken.png";
 
 const useStyles = makeStyles((theme) => ({
   headerWrapper: {
-    background: "lightblue",
+    background: "white",
   },
   headerContainer: {
     padding: theme.spacing(4),
     display: "flex",
     justifyContent: "space-between",
-
+    overflow: "auto",
     gap: theme.spacing(1),
+    boxShadow: "rgb(4 17 29 / 25%) 0px 0px 8px 0px",
   },
   headerText: {
     paddingRight: theme.spacing(2),
-    fontFamily: "Roboto",
+    fontFamily: "sans-serif",
     fontSize: "18px",
     textDecoration: "none",
   },
   pageNavigatorLink: {
     paddingRight: theme.spacing(2),
-    fontFamily: "Roboto",
+    fontFamily: "sans-serif",
     fontSize: "22px",
     textDecoration: "none",
     "&:visited": { color: "inherit" },
@@ -32,8 +33,11 @@ const useStyles = makeStyles((theme) => ({
   pageNavigatorContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     gap: theme.spacing(1),
+  },
+  navIcon: {
+    width: "40px",
   },
 }));
 
@@ -49,7 +53,9 @@ export const Header = () => {
   return (
     <div className={classes.headerWrapper}>
       <div className={classes.headerContainer}>
-        <div>LOGO</div>
+        <div>
+          <img src={MacTokenPng} className={classes.navIcon}></img>
+        </div>
         <div className={classes.pageNavigatorContainer}>
           <div>
             <Link className={classes.pageNavigatorLink} to="/">

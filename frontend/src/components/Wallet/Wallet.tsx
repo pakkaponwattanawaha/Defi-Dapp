@@ -13,15 +13,18 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     gap: theme.spacing(4),
+    paddingBlockStart: theme.spacing(2),
   },
   box: {
-    backgroundColor: "white",
+    backgroundColor: "#fbfbfb",
     borderRadius: theme.spacing(1.5),
-    border: "1px solid #9aa2e7",
+    border: "1px solid rgb(229, 232, 235)",
     boxShadow: "rgb(12 22 44 / 32%) 0px 8px 24px -16px",
   },
   header: {
-    color: "blue",
+    fontFamily: "sans-serif",
+    fontWeight: 600,
+    color: "rgb(4, 17, 29)",
   },
 }));
 
@@ -33,7 +36,7 @@ export const Wallet = ({ supportedTokens }: WalletProps) => {
   };
   return (
     <Box>
-      <h1 className={classes.header}> Your Wallet! </h1>
+      <h1 className={classes.header}> Your Wallet </h1>
       <Box className={classes.box}>
         <TabContext value={selectedTokenIndex.toString()}>
           <TabList

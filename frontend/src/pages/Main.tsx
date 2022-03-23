@@ -10,20 +10,23 @@ import ETHTokenPng from "../resources/eth.png";
 import { Wallet } from "../components/Wallet/Wallet";
 import { TokenFarmContract } from "../components/TokenFarmContract";
 import { makeStyles } from "@material-ui/core";
-import { Link } from "react-router-dom";
+
 export type Token = {
   image: string;
   address: string;
   name: string;
 };
+
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    padding: theme.spacing(2),
+    marginTop: theme.spacing(4),
+    padding: theme.spacing(3),
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(1),
-    border: "1px solid",
+    border: "1px solid rgb(229, 232, 235)",
     borderRadius: theme.spacing(2),
+    background: "rgb(248, 248, 250)",
   },
   headerText: {
     paddingLeft: theme.spacing(2),

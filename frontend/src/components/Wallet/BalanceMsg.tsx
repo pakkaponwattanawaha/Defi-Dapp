@@ -6,9 +6,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
+    fontFamily: "sans-serif",
   },
   balancetext: {
-    fontWeight: 800,
+    fontWeight: 400,
     fontSize: "16px",
   },
   tokenImg: {
@@ -16,11 +17,11 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "10px",
   },
   amount: {
-    fontWeight: 700,
+    fontWeight: 600,
     paddingLeft: "10px",
   },
   tokenLabel: {
-    fontWeight: 700,
+    fontWeight: 400,
     paddingLeft: "10px",
   },
 }));

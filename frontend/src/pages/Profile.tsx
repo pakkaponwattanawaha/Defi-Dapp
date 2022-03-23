@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import { useIssueReward } from "../hooks/useIssueReward";
 import { Button, CircularProgress } from "@material-ui/core";
-import { formatUnits } from "@ethersproject/units";
-import { useEthers } from "@usedapp/core";
-import { utils } from "ethers";
 
 export const Profile = () => {
   const { send: transferMacToken, state: transferMacTokenState } =
