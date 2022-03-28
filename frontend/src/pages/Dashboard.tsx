@@ -15,13 +15,14 @@ import ETHTokenPng from "../resources/eth.png";
 import DAITokenPng from "../resources/dai.png";
 import { constants } from "ethers";
 
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Box } from "@material-ui/core";
 
 export type Token = {
   image: string;
   address: string;
   name: string;
 };
+
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     marginTop: theme.spacing(4),
@@ -29,32 +30,31 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(1),
-    border: "1px solid rgb(229, 232, 235)",
+    border: "2px solid rgb(229, 232, 235)",
     borderRadius: theme.spacing(2),
     background: "rgb(248, 248, 250)",
     fontFamily: "sans-serif",
+    flexWrap: "wrap",
   },
   balanceContainer: {
     padding: theme.spacing(3),
     border: "1px solid rgb(229, 232, 235)",
     borderRadius: theme.spacing(2),
+    boxShadow: "rgb(12 22 44 / 32%) 0px 8px 2",
     background: "#fbfbfb",
-    width: "100%",
-  },
-  stakedContainer: {
-    padding: theme.spacing(3),
-    border: "1px solid rgb(229, 232, 235)",
-    borderRadius: theme.spacing(2),
-    background: "rgb(248, 248, 250)",
+    minWidth: "250px",
+    width: "40%",
   },
   pendingAmount: {
     fontSize: "18px",
     paddingBottom: theme.spacing(1),
   },
   balanceWrapper: {
-    gap: theme.spacing(3),
+    gap: theme.spacing(2),
+    justifyContent: "space-around",
     display: "flex",
     flexDirection: "row",
+    flexWrap: "wrap",
   },
 }));
 
@@ -98,22 +98,23 @@ export const Dashboard = () => {
       <div className={classes.mainContainer}>
         <h2>Dashboard</h2>
         <div className={classes.pendingAmount}>
-          Pending Staked Reward: {formattedReward}{" "}
+          Pending Staked Reward: {formattedReward} MAC
         </div>
-        <div className={classes.balanceWrapper}>
-          <div className={classes.balanceContainer}>
+
+        <Box className={classes.balanceWrapper}>
+          <Box className={classes.balanceContainer}>
             <h3>Balance</h3>
             {supportedTokens.map((token, index) => {
               return <WalletBalance token={token} />;
             })}
-          </div>
-          <div className={classes.balanceContainer}>
+          </Box>
+          <Box className={classes.balanceContainer}>
             <h3>Staked</h3>
             {supportedTokens.map((token, index) => {
               return <StakedBalance token={token} />;
             })}
-          </div>
-        </div>
+          </Box>
+        </Box>
       </div>
     </div>
   );

@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid rgb(229, 232, 235)",
     borderRadius: theme.spacing(2),
     background: "rgb(248, 248, 250)",
+    maxWidth: "560px",
+    margin: "auto",
   },
   descContainer: {
     gap: theme.spacing(2),
@@ -105,7 +107,7 @@ export const Faucets = () => {
           ETH faucets
         </Button>
         <Button
-          href="https://erc20faucet.com/"
+          href="https://kovan.etherscan.io/address/0xd0A1E359811322d97991E03f863a0C30C2cF029C"
           color="primary"
           variant="contained"
           size="large"

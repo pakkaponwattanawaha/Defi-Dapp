@@ -14,12 +14,22 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     gap: theme.spacing(1),
     boxShadow: "rgb(4 17 29 / 25%) 0px 0px 8px 0px",
+    flexWrap: "wrap",
   },
   headerText: {
     paddingRight: theme.spacing(2),
     fontFamily: "sans-serif",
     fontSize: "18px",
     textDecoration: "none",
+  },
+  pageNavigatorIcon: {
+    gap: theme.spacing(2),
+    fontFamily: "sans-serif",
+    fontSize: "22px",
+    textDecoration: "none",
+    "&:visited": { color: "inherit" },
+    "&:hover": { color: "inherit" },
+    "&:active": { color: "inherit" },
   },
   pageNavigatorLink: {
     paddingRight: theme.spacing(2),
@@ -34,6 +44,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
     gap: theme.spacing(1),
   },
   navIcon: {
@@ -53,24 +65,26 @@ export const Header = () => {
   return (
     <div className={classes.headerWrapper}>
       <div className={classes.headerContainer}>
-        <div>
-          <img src={MacTokenPng} className={classes.navIcon}></img>
-        </div>
-        <div className={classes.pageNavigatorContainer}>
-          <div>
-            <Link className={classes.pageNavigatorLink} to="/">
-              Stake
-            </Link>
-            <Link className={classes.pageNavigatorLink} to="faucets">
-              Faucets
-            </Link>
-            <Link className={classes.pageNavigatorLink} to="dashboard">
-              Dashboard
-            </Link>
-            <Link className={classes.pageNavigatorLink} to="profile">
-              Profile
-            </Link>
+        <Link className={classes.pageNavigatorLink} to="/">
+          <div className={classes.pageNavigatorContainer}>
+            <img src={MacTokenPng} className={classes.navIcon}></img>
+            <span>MAC's DeFi</span>
           </div>
+        </Link>
+        <div className={classes.pageNavigatorContainer}>
+          <Link className={classes.pageNavigatorLink} to="/">
+            Stake
+          </Link>
+          <Link className={classes.pageNavigatorLink} to="faucets">
+            Faucets
+          </Link>
+          <Link className={classes.pageNavigatorLink} to="dashboard">
+            Dashboard
+          </Link>
+          <Link className={classes.pageNavigatorLink} to="profile">
+            Profile
+          </Link>
+
           {account ? (
             <div>
               <span className={classes.headerText}>
