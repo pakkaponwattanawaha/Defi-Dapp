@@ -36,7 +36,7 @@ export const Wallet = ({ supportedTokens }: WalletProps) => {
   };
   return (
     <Box>
-      <h1 className={classes.header}> Your Wallet </h1>
+      <h1 className={classes.header}> Stake Your Token </h1>
       <Box className={classes.box}>
         <TabContext value={selectedTokenIndex.toString()}>
           <TabList
